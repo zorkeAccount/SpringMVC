@@ -44,6 +44,13 @@ public class ControllerServlet extends HttpServlet {
             Product product =  new Product();
             product.setName(productForm.getName());
             product.setDescription(productForm.getDescription());
+
+            //添加字符串数字格式判断
+            try {
+                new BigDecimal(productForm.getPrice());
+            }catch (Exception e){
+                throw new IllegalStateException("价格金额格式不正确");
+            }
             product.setPrice(new BigDecimal(productForm.getPrice()));
 
             req.setAttribute("product", product);

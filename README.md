@@ -2,7 +2,8 @@
 《SpringMVC学习指南》（Paul Deck著，林仪明 崔毅译，人民邮电出版社）书籍学习
 
   2017年3月23日：
-###  一、解耦控制器代码
+###  一、解耦控制器代码  
+将原先的ControllerServlet解耦成InputProductController、SaveProductController、Controller以及DispatcherServlet
   
   
   2017年3月22日：

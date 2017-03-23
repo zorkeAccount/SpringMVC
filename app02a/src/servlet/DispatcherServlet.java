@@ -1,7 +1,7 @@
 package servlet;
 
-import domain.Product;
-import form.ProductForm;
+import controller.InputProductController;
+import controller.SaveProductController;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
+ * 该Servlet耦合程度程度较高，现将该代码解耦成一个Controller接口+InputProductController+SaveProductController
  * Created by zhaoke on 2017/3/22.
  */
-public class ControllerServlet extends HttpServlet {
+public class DispatcherServlet extends HttpServlet {
     private static final long serialVersionUID = -6395821976983329589L;
 
     @Override
@@ -32,36 +32,16 @@ public class ControllerServlet extends HttpServlet {
         String uri = req.getRequestURI();
         int lastIndex = uri.lastIndexOf("/");
         String action = uri.substring(lastIndex + 1);
-        if ("product_input.action".equals(action)){
-            //nothing
-        }else if ("product_save.action".equals(action)){
-
-            ProductForm productForm = new ProductForm();
-            productForm.setName(req.getParameter("name"));
-            productForm.setDescription(req.getParameter("description"));
-            productForm.setPrice(req.getParameter("price"));
-
-            Product product =  new Product();
-            product.setName(productForm.getName());
-            product.setDescription(productForm.getDescription());
-
-            //添加字符串数字格式判断
-            try {
-                new BigDecimal(productForm.getPrice());
-            }catch (Exception e){
-                throw new IllegalStateException("价格金额格式不正确");
-            }
-            product.setPrice(new BigDecimal(productForm.getPrice()));
-
-            req.setAttribute("product", product);
-        }
 
         String dispatchUrl = null;
         if ("product_input.action".equals(action)){
-            dispatchUrl = "/WEB-INF/jsp/ProductForm.jsp";
+            InputProductController controller = new InputProductController();
+            dispatchUrl = controller.handleRequest(req,resp);
         }else if ("product_save.action".equals(action)){
-            dispatchUrl = "/WEB-INF/jsp/ProductDetails.jsp";
+            SaveProductController controller = new SaveProductController();
+            dispatchUrl = controller.handleRequest(req,resp);
         }
+
         if (null != dispatchUrl){
             RequestDispatcher rd = req.getRequestDispatcher(dispatchUrl);
             rd.forward(req,resp);

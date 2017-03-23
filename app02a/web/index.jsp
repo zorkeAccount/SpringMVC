@@ -11,6 +11,6 @@
     <title>HomePage</title>
   </head>
   <body>
-  哈哈哈
+  This is the study of 《Spring MVC 学习指南》
   </body>
 </html>

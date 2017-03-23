@@ -24,6 +24,7 @@ public class ControllerServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8"); //浏览器默认是GB2312编码的，解决乱码问题需要在此设置字符格式为UTF-8与jsp文件中字符格式保持一致
         process(req, resp);
     }
 

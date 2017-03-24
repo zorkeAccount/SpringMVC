@@ -9,12 +9,12 @@
 <html>
 <head>
     <title>Product Input</title>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 <%--    <style type="text/css">@import "/css/main.css";</style>--%>
 </head>
 <body>
 <div id="global">
-    <form action="/product_save.action" method="post">
+    <form action="product_save.action" method="post">
         <fieldset>
             <legend>Add a product</legend>
             <p>

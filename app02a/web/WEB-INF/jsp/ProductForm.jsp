@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Add Product Form</title>
@@ -13,6 +14,16 @@
 </head>
 <body>
     <div id="global">
+        <c:if test="${not empty requestScope.errors}">
+            <p id="errors">
+                Error(s)!
+                <ul>
+                <c:forEach var="error" items="${requestScope.errors}">
+                    <li>${error}</li>
+                </c:forEach>
+                </ul>
+            </p>
+        </c:if>
         <form action="product_save.action" method="post">
             <fieldset>
                 <legend>Add a product</legend>

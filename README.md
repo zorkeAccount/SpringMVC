@@ -1,7 +1,10 @@
 # SpringMVC
 《SpringMVC学习指南》（Paul Deck著，林仪明 崔毅译，人民邮电出版社）书籍学习
 
-  2017年3月23日：
+  2017年3月23日：  
+###  二、添加校验器
+  JSTL：File -> Project Structure -> + 添加jstl.jar和standard.jar两个文件包 -> 进而可以在jsp文件中使用JSTL  
+注意：File -> Project Structure ... -> Artifacts -> 右侧的+t添加指定的包，将指定lib库加入到Artifacts中，否则tomcat启动起来的程序无法识别该jar文件
 ###  一、解耦控制器代码  
 将原先的ControllerServlet解耦成InputProductController、SaveProductController、Controller以及DispatcherServlet
   
@@ -9,7 +12,10 @@
   2017年3月22日：
 ####  二、Servlet控制器
 #####  1、新建Spring - Spring MVC模块：app02a
-#####  2、File -> Project Structure ... -> Libraries -> 左侧中间一个窗口“+”  引入javaxServlet.jar文件
+#####  2、File -> Project Structure ... -> Libraries -> 左侧中间一个窗口“+”  引入javaxServlet.jar文件  
+注意：该方式仅是将jar文件导入了IDEA中去，并没有成功地导入到项目中，如  
+(1)  File -> Project Structure ... -> Artifacts -> 右侧的+t添加指定的包，将指定lib库加入到Artifacts中，否则tomcat启动起来的程序无法识别该jar文件
+(2)需要导入到某个module中去为File -> Project Structure ... -> Module -> Dependencies将需要的jar文件打上对勾
 #####  3、设置：Intellij IDEA 自动生成 serialVersionUID
 #####  4、在web.xml文件配置修改servlet拦截器映射关系
 #####  5、根据书本创建相关类和方法

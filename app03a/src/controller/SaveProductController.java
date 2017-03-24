@@ -34,6 +34,6 @@ public class SaveProductController implements Controller {
             throw new IllegalArgumentException("产品价格金额格式不正确");
         }
 
-        return new ModelAndView("/WEB-INF/jsp/ProductDetails.jsp","product",product);
+        return new ModelAndView("ProductDetails","product",product);
     }
 }

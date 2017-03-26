@@ -10,6 +10,8 @@
     <!--基于注解的控制器：1、上述添加xmlns:context="http://www.springframework.org/schema/context";2、指定控制器类的基本包如下-->
     <!--Spring 扫描机制扫描基于注解的控制器类所在的包中的类-->
     <context:component-scan base-package="com.controller"></context:component-scan>
+    <!--用于扫描服务类-->
+    <context:component-scan base-package="com.service"></context:component-scan>
 
     <!--支持resources注册用于支持基于注解的控制器的请求处理方法的bean对象-->
     <mvc:annotation-driven></mvc:annotation-driven>

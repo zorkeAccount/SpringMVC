@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="global">
-    <form action="product_save" method="post">
+    <form action="second_product_save" method="post">
         <fieldset>
             <legend>Add a product</legend>
             <p>

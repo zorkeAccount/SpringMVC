@@ -45,6 +45,7 @@ public class SecondProductController {
         }
 
         Product saveProduct = productService.add(product);
+        /*使用flash属性重定向，此外配置文件中必须配置<annotation-driven/>*/
         redirectAttributes.addFlashAttribute("message","The product was successfully added.");
 
         return "redirect:/product_view/" + saveProduct.getId();

@@ -3,14 +3,25 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--为程序定制Converter-->
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <!--为程序注册Converter-->
+<!--    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <list>
                 <bean class="converter.StringToDateConverter">
                     <constructor-arg type="java.lang.String" value="MM-dd-yyyy"/>
                 </bean>
             </list>
+        </property>
+    </bean>-->
+
+    <!--为程序注册Formater-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="formatter.DateFormatter">
+                    <constructor-arg type="java.lang.String" value="yyyy/MM/dd"/>
+                </bean>
+            </set>
         </property>
     </bean>
 

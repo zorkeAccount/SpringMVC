@@ -16,10 +16,17 @@
 
     <!--为程序注册Formater-->
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <property name="formatters">
+<!--        <property name="formatters">
             <set>
                 <bean class="formatter.DateFormatter">
                     <constructor-arg type="java.lang.String" value="yyyy/MM/dd"/>
+                </bean>
+            </set>
+        </property>-->
+        <property name="formatterRegistrars">
+            <set>
+                <bean class="formatter.MyFormatterRegister">
+                    <constructor-arg type="java.lang.String" value="yyyy-MM-dd"/>
                 </bean>
             </set>
         </property>
